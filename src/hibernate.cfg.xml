@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+ 
+<hibernate-configuration>
+    <session-factory>
+    	<!-- DataBase connection settings -->
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:saba</property>
+        <property name="hibernate.connection.username">tp2</property>
+        <property name="hibernate.connection.password">tp2</property>
+        
+        <!-- JDBC connection pool (use the built in) ??-->
+        <property name="hibernate.connection.pool_size">10</property>
+        
+        <!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>		
+
+		 <!-- Disable the second level cache -->
+		 <!-- <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property> -->
+		 
+		 <!-- Configuration for second level cache  --> 
+		 <!-- <property name="cache.use_second_level_cache">true</property>
+		 <property name="cache.use_query_cache">true</property>
+		 <property name="cache.provider.class">org.hibernate.cache.EhCacheProvider</property> -->
+		 
+		 
+		 <!-- Echo all executed SQL to stdout -->
+		 <property name="show_sql">true</property> 
+		 
+		 <!-- Drop and re-create the database schema on startup -->
+		 <property name="hbm2ddl.auto">update</property> 
+		 
+		 <!-- Names the annotated entity class  -->
+		 <mapping class="org.reeta.dto.UserDetails"/>
+		 <mapping class="org.reeta.dto.Vehicle"/>
+		 <mapping class="org.reeta.dto.TwoWheeler"/>
+		 <mapping class="org.reeta.dto.FourWheeler"/>
+		 <mapping class="org.reeta.dto.Employee"/>
+	</session-factory>
+ 
+</hibernate-configuration>
